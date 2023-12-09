@@ -2,8 +2,10 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NoteApi.Application.Interfaces.Repositories;
+using NoteApi.Application.Interfaces.UnitOfWorks;
 using NoteApi.Persistence.context;
 using NoteApi.Persistence.Repositories;
+using NoteApi.Persistence.UnitOfWorks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +26,7 @@ namespace NoteApi.Persistence
 
             services.AddScoped(typeof(IReadRepository<>),typeof(ReadRepository<>));
             services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
+            services.AddScoped<IUnitOfWork,UnitOfWork>();
 
         }
 

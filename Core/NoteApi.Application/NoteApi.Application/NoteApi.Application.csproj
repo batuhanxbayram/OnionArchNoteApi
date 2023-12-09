@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Interfaces\AutoMapper\" />
-    <Folder Include="Interfaces\UnitOfWorks\" />
   </ItemGroup>
 
   <ItemGroup>
