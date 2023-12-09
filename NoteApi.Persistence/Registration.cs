@@ -23,6 +23,7 @@ namespace NoteApi.Persistence
             opt.UseSqlServer(config.GetConnectionString("DefaultConnection")));
 
             services.AddScoped(typeof(IReadRepository<>),typeof(ReadRepository<>));
+            services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
 
         }
 
