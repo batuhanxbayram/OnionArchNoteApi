@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteApi.Infrastructure", "I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteApi.Persistence", "NoteApi.Persistence\NoteApi.Persistence.csproj", "{9A59A78C-3993-48F1-937E-2166C581E371}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteApi.Api", "Presantation\NoteApi.Api\NoteApi.Api.csproj", "{D629E0E0-12A0-4EA0-81D9-CC57DF903538}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteApi.Api", "Presantation\NoteApi.Api\NoteApi.Api.csproj", "{D629E0E0-12A0-4EA0-81D9-CC57DF903538}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

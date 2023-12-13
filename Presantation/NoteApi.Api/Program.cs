@@ -1,4 +1,5 @@
 using NoteApi.Persistence;
+using NoteApi.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddPersistence(builder.Configuration);
+builder.Services.AddApplication();
 
 
 var app = builder.Build();
