@@ -12,8 +12,8 @@ using NoteApi.Persistence.context;
 namespace NoteApi.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231208003159_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20231213144856_update2")]
+    partial class update2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,9 +59,8 @@ namespace NoteApi.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CreatedDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");

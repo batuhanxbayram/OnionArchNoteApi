@@ -1,26 +1,26 @@
-﻿using NoteApi.Domain.Common;
+﻿using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NoteApi.Domain.Entities
+namespace NoteApi.Application.Features.Notes.Commands.CreateNote
 {
-    public class Note: EntityBase
+    public class CreateNoteCommandRequest:IRequest
     {
         public string Title { get; set; }
         public string Content { get; set; }
         public Guid CategoryId { get; set; }
-        public Category Category { get; set; }
 
-        public Note()
+        public CreateNoteCommandRequest()
         {
         }
-        public Note(string? title,string? content,Guid categoryId)
+
+        public CreateNoteCommandRequest(string title, string content, Guid categoryId)
         {
-            Title=title;
-            Content=content;
+            Title = title;
+            Content = content;
             CategoryId = categoryId;
         }
     }

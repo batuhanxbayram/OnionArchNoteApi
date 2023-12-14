@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NoteApi.Application.Features.Notes.Commands.CreateNote;
 using NoteApi.Application.Features.Notes.Queries.GetAllNotes;
 
 namespace NoteApi.Api.Controllers
@@ -22,6 +23,13 @@ namespace NoteApi.Api.Controllers
             var response = await mediatr.Send(new GetAllNotesQueryRequest());
 
             return Ok(response);
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateNote(CreateNoteCommandRequest request )
+        {
+            await mediatr.Send(request);
+
+            return Ok();
         }
 
     }

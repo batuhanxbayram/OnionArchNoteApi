@@ -10,7 +10,7 @@ namespace NoteApi.Application.Features.Notes.Queries.GetAllNotes
     {
         public string Title { get; set; }
         public string Content { get; set; }
-        public string CreatedDate { get; set; }
+        
 
     }
 }
