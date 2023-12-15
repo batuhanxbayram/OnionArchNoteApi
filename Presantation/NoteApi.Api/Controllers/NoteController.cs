@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NoteApi.Application.Features.Notes.Commands.CreateNote;
+using NoteApi.Application.Features.Notes.Commands.DeleteNote;
+using NoteApi.Application.Features.Notes.Commands.UpdateNote;
 using NoteApi.Application.Features.Notes.Queries.GetAllNotes;
 
 namespace NoteApi.Api.Controllers
@@ -25,12 +27,26 @@ namespace NoteApi.Api.Controllers
             return Ok(response);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateNote(CreateNoteCommandRequest request )
+        public async Task<IActionResult> CreateNoteAsync(CreateNoteCommandRequest request )
         {
             await mediatr.Send(request);
 
             return Ok();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> SafeDeleteNoteAsync(DeleteNoteCommandRequest request)
+        {
+            await mediatr.Send(request);
+            return Ok();
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateNoteAsync(UpdateNoteCommandRequest request)
+        {
+            await mediatr.Send(request);
+            return Ok();
+
+        }
     }
 }
