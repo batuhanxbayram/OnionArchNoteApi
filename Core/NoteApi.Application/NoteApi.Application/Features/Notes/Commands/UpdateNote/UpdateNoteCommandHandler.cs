@@ -22,12 +22,22 @@ namespace NoteApi.Application.Features.Notes.Commands.UpdateNote
         }
 
        
-
+        /// <summary>
+        /// Burayı tekrar düzelt
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>Void</returns>
         public  async Task Handle(UpdateNoteCommandRequest request, CancellationToken cancellationToken)
         {
             var note = await unitOfWork.GetReadRepository<Note>().GetAsync(x=> x.Id==request.Id && !x.IsDeleted);
 
             var mapped = mapper.Map<UpdateNoteCommandRequest>(request);
+
+            note.Content = mapped.Content;
+            note.Title = mapped.Title;
+            note.CategoryId = mapped.CategoryId;
+
 
             await unitOfWork.GetWriteRepository<Note>().UpdateAsync(note);
             await unitOfWork.SaveAsync();

@@ -1,5 +1,6 @@
 using NoteApi.Persistence;
 using NoteApi.Application;
+using NoteApi.Application.Exceptions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.ConfigureExceptionHandlerMiddleware();
 
 app.UseAuthorization();
 

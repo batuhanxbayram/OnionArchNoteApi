@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using NoteApi.Application.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace NoteApi.Application
             var assembly = Assembly.GetExecutingAssembly();
             services.AddMediatR(config => config.RegisterServicesFromAssemblies(assembly));
             services.AddAutoMapper(assembly);
+            services.AddTransient<ExceptionMiddleware>();
         }
     }
 }
